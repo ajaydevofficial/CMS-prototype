@@ -14,8 +14,8 @@
             <div id="navbar-collapse" class="hl_navbar--collapse d-block">
                 <button class="hl_navbar--button btn btn-success btn-block" data-toggle="modal" data-target="#client-checkin--modal">Check In Client</button>
                 <ul class="hl_navbar--links list-unstyled" id="nav-links">
-                    <li v-for="(item,index) in allMenuItems" v-bind:key="index" id="nav-dashboard">
-                        <a href="/" data-bs-toggle="tooltip" data-bs-placement="top" :title="item.title">
+                    <li v-for="(item,index) in allMenuItems" v-bind:key="index">
+                        <a class="menu-item" href="/" data-bs-toggle="tooltip" data-bs-placement="right" :title="item.title" >
                             <i :class="item.iconClass"></i>
                             <span>{{item.title}}</span>
                         </a>
@@ -55,6 +55,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+    .hl_navbar {
+        z-index:100000;
+    }
     .logo-sidebar{
         height: 26px;
         width: 28px;

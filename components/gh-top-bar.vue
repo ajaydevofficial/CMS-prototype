@@ -53,8 +53,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+    .hl_header {
+        z-index: 100000;
+    }
     .svg-15{
         height: 15px;
         width: 15px;
     }
+
 </style>

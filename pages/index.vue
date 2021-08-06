@@ -3,7 +3,7 @@
     <gh-sidebar></gh-sidebar>
     <div class="sidebar-padding">
       <gh-top-bar></gh-top-bar>
-      <nuxt-child></nuxt-child>
+      <nuxt-child class="child-components"></nuxt-child>
     </div>
   </div>
 </template>
