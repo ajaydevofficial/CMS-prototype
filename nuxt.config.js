@@ -4,7 +4,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'gohighlevel',
+    title: 'High Level',
     htmlAttrs: {
       lang: 'en'
     },
@@ -16,18 +16,22 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+    ],
+    script: [
+      { src: '/js/bootstrap.bundle.min.js' }
     ]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    '~/assets/css/report.min.css',
-    '~/assets/css/styles.min.css',
-    '~/assets/css/widgets.min.css'
+    '@/assets/css/report.min.css',
+    '@/assets/css/styles.min.css',
+    '@/assets/css/widgets.min.css'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    { src: '@/plugins/bootstrap-vue.js', mode: 'client'}
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
