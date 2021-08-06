@@ -15,9 +15,10 @@ export default {
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      
     ],
     script: [
+      { src: 'https://kit.fontawesome.com/a20791480a.js' },
       { src: '/js/bootstrap.bundle.min.js' }
     ]
   },
