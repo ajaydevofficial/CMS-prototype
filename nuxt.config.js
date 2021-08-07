@@ -15,7 +15,7 @@ export default {
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
-      
+      { rel: 'icon', type: 'image', href: '_nuxt/assets/img/favicon.png' }
     ],
     script: [
       { src: 'https://kit.fontawesome.com/a20791480a.js' },
@@ -32,7 +32,8 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    { src: '@/plugins/bootstrap-vue.js', mode: 'client'}
+    { src: '@/plugins/bootstrap-vue.js', mode: 'client'},
+    { src: '@/plugins/vue-draggable.js', mode: 'client'}
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

@@ -8,7 +8,7 @@
                 <div class="btn-group">
                     <button v-b-toggle:gh-add-columns-sidebar type="button" class="btn btn-light btn-sm">
                         <i class="fa fa-bars"></i>
-                        <span class="btn-text">Rows</span>
+                        <span class="btn-text">Columns</span>
                     </button>
                     <button v-b-toggle.gh-add-elements-sidebar type="button" class="btn btn-light btn-sm">
                         <i class="fa fa-code"></i>

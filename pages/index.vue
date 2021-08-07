@@ -24,9 +24,6 @@ export default {
   .expand-to-viewport{
       height: 100vh;
   }
-  .sidebar-padding{
-      padding-left: 70px
-  }
   @media (max-width: 767px){
     .sidebar-padding{
       padding-left: 0px

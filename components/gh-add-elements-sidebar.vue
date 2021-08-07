@@ -4,8 +4,6 @@
         right
         shadow
         body-class="bg-white"
-        backdrop
-        backdrop-variant="dark"
         no-header
     >
         <section class="hl_page-creator--rows-group active">
@@ -46,7 +44,12 @@
 </template>
 
 <script>
+import draggable from 'vuedraggable';
+
 export default {
+    components: {
+        'gh-dragabble': draggable
+    },
     data: ()=>{
         return{
 
