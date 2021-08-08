@@ -12,8 +12,8 @@
                 <div class="col" v-for="(col,index) in columnProperties[0].columns" v-bind:key="index">
                     <div 
                     class="hl_page-creator--column"
-                    @mouseover="col.showControls=true;$forceUpdate();"
-                    @mouseout="col.showControls=false;$forceUpdate();"
+                    @mouseover="col.showControls=true;"
+                    @mouseout="col.showControls=false;"
                     v-bind:class="{'border': col.showControls }"
                     >
                         <div class="hl_page-creator--element">
@@ -25,7 +25,7 @@
                                 </div>
                             </div>
                             <div class="element-container">
-                                <gh-element-container :key="col.items.length" :element="col"></gh-element-container>
+                                <gh-element-container :element="col"></gh-element-container>
                             </div>
                         </div>
                     </div>
@@ -55,7 +55,6 @@ export default {
         },
         hideAllControls(){
             this.columnProperties[0].columns.map(this.setControlsFalse);
-            this.$forceUpdate();
         },
         removeColumn(id){
             var index = this.columnProperties[0].columns.findIndex(el=>el.id==id);
@@ -64,7 +63,6 @@ export default {
             }else{
                 console.error("Column does not exist")
             }
-            this.$forceUpdate();
         },
         emptyColumn(id){
             var index = this.columnProperties[0].columns.findIndex(el=>el.id==id);
@@ -74,7 +72,6 @@ export default {
             }else{
                 console.error("Column does not exist")
             }
-            this.$forceUpdate();
         }
     }
 }

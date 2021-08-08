@@ -25,7 +25,6 @@
                                 :group="{ name: 'elements', pull: 'clone', put: false }"
                                 @start="drag=true" 
                                 @end="drag=false"
-                                :clone="cloneElement"
                                 >
                                     <div class="row-card" v-for="element in category.elements" v-bind:key="element.id">
                                         <div class="icon">
@@ -59,25 +58,21 @@ export default {
                     id: "text",
                     title: "Text", 
                     elements:[
-                        { type:"heading", title: "Heading" , iconClass: "fa fa-heading", placeholder: "Heading Text Goes Here" ,value: null}
+                        { id: cryptoRandomString({length: 10}), type:"heading", title: "Heading" , iconClass: "fa fa-heading", placeholder: "Heading Text Goes Here" ,value: null, showControls:false}
                     ] 
                 },
                 { 
                     id: "media",
                     title: "Media", 
                     elements:[
-                        { type:"image", title: "Image", iconClass: "fa fa-image", url: null}
+                        { id: cryptoRandomString({length: 10}), type:"image", title: "Image", iconClass: "fa fa-image", url: null, showControls: false}
                     ] 
                 }
             ]
         }
     },
     methods:{
-        cloneElement(element){
-            var payload = Object.assign(element);
-            payload.id = cryptoRandomString({length: 10});
-            return payload;
-        }
+        
     }
 }
 </script>

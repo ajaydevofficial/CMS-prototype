@@ -21,7 +21,6 @@
                                 :group="{ name: 'rows', pull: 'clone', put: false }"
                                 @start="drag=true" 
                                 @end="drag=false"
-                                :clone="cloneColumn"
                                 >
                                     <div v-for="row in rows" :key="row.colNum" :id="`gh-${row.colNum}-column`" class="row-card">
                                         <div class="icon">
@@ -51,51 +50,70 @@ export default {
                 { 
                     colNum: 1, 
                     text: "1 Column", 
-                    bClass: 'row-cols-1' ,
+                    bClass: 'row-cols-1' , 
+                    columns: [
+                        {id: cryptoRandomString({length: 10}), showControls: false, items: []}
+                    ]
                 },
                 { 
                     colNum: 2, 
                     text: "2 Column", 
                     bClass: 'row-cols-1 row-cols-md-2', 
+                    columns: [
+                        {id: cryptoRandomString({length: 10}), showControls: false, items: []}, 
+                        {id: cryptoRandomString({length: 10}), showControls: false, items: []}
+                    ] 
                 },
                 { 
                     colNum: 3, 
                     text: "3 Column", 
                     bClass: 'row-cols-1 row-cols-md-1',
+                    columns: [
+                        {id: cryptoRandomString({length: 10}), showControls: false, items: []}, 
+                        {id: cryptoRandomString({length: 10}), showControls: false, items: []},
+                        {id: cryptoRandomString({length: 10}), showControls: false, items: []}
+                    ] 
                 },
                 { 
                     colNum: 4, 
                     text: "4 Column", 
                     bClass: 'row-cols-1 row-cols-sm-2 row-cols-md-4' ,
+                    columns: [
+                        {id: cryptoRandomString({length: 10}), showControls: false, items: []}, 
+                        {id: cryptoRandomString({length: 10}), showControls: false, items: []},
+                        {id: cryptoRandomString({length: 10}), showControls: false, items: []},
+                        {id: cryptoRandomString({length: 10}), showControls: false, items: []}
+                    ] 
                 },
                 { 
                     colNum: 5, 
                     text: "5 Column", 
                     bClass: 'row-cols-1 row-cols-md-1',
+                    columns: [
+                        {id: cryptoRandomString({length: 10}), showControls: false, items: []}, 
+                        {id: cryptoRandomString({length: 10}), showControls: false, items: []},
+                        {id: cryptoRandomString({length: 10}), showControls: false, items: []},
+                        {id: cryptoRandomString({length: 10}), showControls: false, items: []},
+                        {id: cryptoRandomString({length: 10}), showControls: false, items: []}
+                    ] 
                 },
                 { 
                     colNum: 6, 
                     text: "6 Column", 
                     bClass: 'row-cols-1 row-cols-sm-2 row-cols-md-6',
+                    columns: [
+                        {id: cryptoRandomString({length: 10}), showControls: false, items: []}, 
+                        {id: cryptoRandomString({length: 10}), showControls: false, items: []},
+                        {id: cryptoRandomString({length: 10}), showControls: false, items: []},
+                        {id: cryptoRandomString({length: 10}), showControls: false, items: []},
+                        {id: cryptoRandomString({length: 10}), showControls: false, items: []},
+                        {id: cryptoRandomString({length: 10}), showControls: false, items: []}
+                    ]
                 }
             ]
         }
     },
     methods:{
-        cloneColumn(column){
-            var payload = Object.assign(column);
-            payload.columns = []
-            for(let i=0;i<payload.colNum;i++){
-                payload.columns.push(
-                    {
-                        id: cryptoRandomString({length: 10}), 
-                        showControls: false, 
-                        items: []
-                    }
-                )
-            }
-            return payload
-        }
     }
 }
 </script>

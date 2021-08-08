@@ -5,7 +5,7 @@
         v-model="element.items" 
         group="elements"
         @start="drag=true" 
-        @end="drag=false;$forceUpdate();"
+        @end="drag=false"
         >
             <div v-if="element.items.length>0" class="w-100">
                 <div class="row-card" v-for="item in element.items" v-bind:key="item.id">
@@ -44,12 +44,11 @@ export default {
         'gh-add-image-popup': ghAddImagePopupVue
     },
     watch: {
-        "element.items": function (newVal, oldVal) {
-            alert()
+        "element.items": function (oldVal, newVal){
             if(this.element.items.length>1){
-                this.element.items = newVal.filter(x => !oldVal.includes(x));
+                this.element.items.splice(0,1)
             }
-        } 
+        }  
     },
     data: ()=>{
         return{
@@ -76,6 +75,9 @@ export default {
         },
         showMediaModal(){
             this.$refs.imagePopupModal[0].show();
+        },
+        show(){
+            alert();
         }
     }
 }
