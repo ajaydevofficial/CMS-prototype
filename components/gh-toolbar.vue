@@ -15,12 +15,6 @@
                         <span class="btn-text">Elements</span>
                     </button>
                 </div>
-                <div class="btn-group">
-                    <button type="button" class="btn btn-light btn-sm" data-tooltip="tooltip" data-placement="top" title="" data-original-title="Save">
-                        <i class="fa fa-save"></i>
-                        <span class="btn-text">Save</span>
-                    </button>
-                </div>
             </div>
         </div>
     </div>

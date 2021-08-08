@@ -1,4 +1,4 @@
-# gohighlevel
+# Vue JS(Nuxt JS) CMS
 
 ## Build Setup
 

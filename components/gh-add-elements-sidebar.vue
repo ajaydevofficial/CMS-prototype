@@ -13,26 +13,22 @@
                 <div class="tab-pane fade active show" id="add-row" role="tabpanel" aria-labelledby="add-row-tab">
                     <div class="add-row">
                         <div class="add-row-body">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Search">
-                            </div>
-                            <p>Text</p>
-                            <div class="row-cards">
-                                <div class="row-card">
-                                    <div class="icon">
-                                        <i class="fa fa-heading fa-w-16"></i>
+                            <div v-for="(category,index) in elementCategories" v-bind:key="index">
+                                <p>{{category.title}}</p>
+                                <gh-draggable 
+                                class="row-cards" 
+                                v-model="category.elements" 
+                                :group="{ name: 'element-items', pull: 'clone', put: false }"
+                                @start="drag=true" 
+                                @end="drag=false;remount()"
+                                >
+                                    <div class="row-card" v-for="element in category.elements" v-bind:key="element.id">
+                                        <div class="icon">
+                                            <i :class="`${element.iconClass} fa-w-16`"></i>
+                                        </div>
+                                        <h5>{{element.title}}</h5>
                                     </div>
-                                    <h5>Heading</h5>
-                                </div>
-                            </div>
-                            <p>Media</p>
-                            <div class="row-cards">
-                                <div class="row-card">
-                                    <div class="icon">
-                                        <i class="fa fa-image fa-w-16"></i>
-                                    </div>
-                                    <h5>Image</h5>
-                                </div>
+                                </gh-draggable>
                             </div>
                         </div>
                     </div>
@@ -45,28 +41,64 @@
 
 <script>
 import draggable from 'vuedraggable';
+import cryptoRandomString from 'crypto-random-string';
 
 export default {
     components: {
         'gh-dragabble': draggable
     },
+    mounted(){
+
+    },
     data: ()=>{
         return{
-
+            elementCategories: [
+                {   
+                    id: "text",
+                    title: "Text", 
+                    elements:[
+                        { id: cryptoRandomString({length: 10}), type:"heading", title: "Heading" , iconClass: "fa fa-heading", placeholder: "Heading Text Goes Here" ,value: null, showControls:false}
+                    ] 
+                },
+                { 
+                    id: "media",
+                    title: "Media", 
+                    elements:[
+                        { id: cryptoRandomString({length: 10}), type:"image", title: "Image", iconClass: "fa fa-image", url: null, showControls: false}
+                    ] 
+                }
+            ]
         }
     },
     methods:{
-        show(){
-
-        },
-        hide(){
-
+        remount(){
+            this.elementCategories = [
+                {   
+                    id: "text",
+                    title: "Text", 
+                    elements:[
+                        { id: cryptoRandomString({length: 10}), type:"heading", title: "Heading" , iconClass: "fa fa-heading", placeholder: "Heading Text Goes Here" ,value: null, showControls:false}
+                    ] 
+                },
+                { 
+                    id: "media",
+                    title: "Media", 
+                    elements:[
+                        { id: cryptoRandomString({length: 10}), type:"image", title: "Image", iconClass: "fa fa-image", url: null, showControls: false}
+                    ] 
+                }
+            ]
         }
     }
 }
 </script>
 
 <style lang="scss" scoped>
+    .hl_page-creator--rows-group .row-cards .row-card:hover {
+        background-color: #f2f7fa;
+        border-color: #e0ecf3;
+        transform: none;
+    }
     @media (max-width: 767px){
         .hl_page-creator--rows-group {
             top: 0;
