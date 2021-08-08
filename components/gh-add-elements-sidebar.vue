@@ -13,10 +13,6 @@
                 <div class="tab-pane fade active show" id="add-row" role="tabpanel" aria-labelledby="add-row-tab">
                     <div class="add-row">
                         <div class="add-row-body">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Search">
-                            </div>
-                            
                             <div v-for="(category,index) in elementCategories" v-bind:key="index">
                                 <p>{{category.title}}</p>
                                 <gh-draggable 
