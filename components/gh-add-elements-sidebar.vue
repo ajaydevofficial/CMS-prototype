@@ -22,9 +22,9 @@
                                 <gh-draggable 
                                 class="row-cards" 
                                 v-model="category.elements" 
-                                :group="{ name: 'elements', pull: 'clone', put: false }"
+                                :group="{ name: 'element-items', pull: 'clone', put: false }"
                                 @start="drag=true" 
-                                @end="drag=false"
+                                @end="drag=false;remount()"
                                 >
                                     <div class="row-card" v-for="element in category.elements" v-bind:key="element.id">
                                         <div class="icon">
@@ -51,6 +51,9 @@ export default {
     components: {
         'gh-dragabble': draggable
     },
+    mounted(){
+
+    },
     data: ()=>{
         return{
             elementCategories: [
@@ -72,7 +75,24 @@ export default {
         }
     },
     methods:{
-        
+        remount(){
+            this.elementCategories = [
+                {   
+                    id: "text",
+                    title: "Text", 
+                    elements:[
+                        { id: cryptoRandomString({length: 10}), type:"heading", title: "Heading" , iconClass: "fa fa-heading", placeholder: "Heading Text Goes Here" ,value: null, showControls:false}
+                    ] 
+                },
+                { 
+                    id: "media",
+                    title: "Media", 
+                    elements:[
+                        { id: cryptoRandomString({length: 10}), type:"image", title: "Image", iconClass: "fa fa-image", url: null, showControls: false}
+                    ] 
+                }
+            ]
+        }
     }
 }
 </script>

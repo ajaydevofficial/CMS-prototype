@@ -3,7 +3,7 @@
         <gh-draggable 
         class="row-cards hl_page-creator--row" 
         v-model="element.items" 
-        group="elements"
+        group="element-items"
         @start="drag=true" 
         @end="drag=false"
         >
