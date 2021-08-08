@@ -21,6 +21,7 @@
                                 :group="{ name: 'rows', pull: 'clone', put: false }"
                                 @start="drag=true" 
                                 @end="drag=false"
+                                :clone="cloneColumn"
                                 >
                                     <div v-for="row in rows" :key="row.colNum" :id="`gh-${row.colNum}-column`" class="row-card">
                                         <div class="icon">
@@ -40,6 +41,9 @@
 </template>
 
 <script>
+
+import cryptoRandomString from 'crypto-random-string';
+
 export default {
     data: ()=>{
         return{
@@ -47,75 +51,50 @@ export default {
                 { 
                     colNum: 1, 
                     text: "1 Column", 
-                    bClass: 'row-cols-1' , 
-                    columns: [
-                        {id: 1, showControls: false, type: null}
-                    ]
+                    bClass: 'row-cols-1' ,
                 },
                 { 
                     colNum: 2, 
                     text: "2 Column", 
                     bClass: 'row-cols-1 row-cols-md-2', 
-                    columns: [
-                        {id: 1, showControls: false, type: null}, 
-                        {id: 2, showControls: false, type: null}
-                    ] 
                 },
                 { 
                     colNum: 3, 
                     text: "3 Column", 
                     bClass: 'row-cols-1 row-cols-md-1',
-                    columns: [
-                        {id: 1, showControls: false, type: null}, 
-                        {id: 2, showControls: false, type: null},
-                        {id: 3, showControls: false, type: null}
-                    ] 
                 },
                 { 
                     colNum: 4, 
                     text: "4 Column", 
                     bClass: 'row-cols-1 row-cols-sm-2 row-cols-md-4' ,
-                    columns: [
-                        {id: 1, showControls: false, type: null}, 
-                        {id: 2, showControls: false, type: null},
-                        {id: 3, showControls: false, type: null},
-                        {id: 4, showControls: false, type: null}
-                    ] 
                 },
                 { 
                     colNum: 5, 
                     text: "5 Column", 
                     bClass: 'row-cols-1 row-cols-md-1',
-                    columns: [
-                        {id: 1, showControls: false, type: null}, 
-                        {id: 2, showControls: false, type: null},
-                        {id: 3, showControls: false, type: null},
-                        {id: 4, showControls: false, type: null},
-                        {id: 5, showControls: false, type: null}
-                    ] 
                 },
                 { 
                     colNum: 6, 
                     text: "6 Column", 
                     bClass: 'row-cols-1 row-cols-sm-2 row-cols-md-6',
-                    columns: [
-                        {id: 1, showControls: false, type: null}, 
-                        {id: 2, showControls: false, type: null},
-                        {id: 3, showControls: false, type: null},
-                        {id: 4, showControls: false, type: null},
-                        {id: 5, showControls: false, type: null},
-                        {id: 6, showControls: false, type: null}
-                    ]
                 }
             ]
         }
     },
     methods:{
-        show(){
-
-        },
-        hide(){
-
+        cloneColumn(column){
+            var payload = Object.assign(column);
+            payload.columns = []
+            for(let i=0;i<payload.colNum;i++){
+                payload.columns.push(
+                    {
+                        id: cryptoRandomString({length: 10}), 
+                        showControls: false, 
+                        items: []
+                    }
+                )
+            }
+            return payload
         }
     }
 }

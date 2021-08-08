@@ -39,7 +39,8 @@ export default {
     props:['id', 'add', 'remove'],
     components: {
         'gh-col-container': ghColContainerVue
-    }, watch: {
+    },
+    watch: {
         columns: function (newVal, oldVal) {
             if(this.columns.length>1){
                 this.columns = newVal.filter(x => !oldVal.includes(x));
@@ -53,7 +54,7 @@ export default {
         }
     },
     methods: {
-
+        
     }
 }
 </script>

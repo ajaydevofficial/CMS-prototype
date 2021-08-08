@@ -2,7 +2,7 @@
   <section class="hl_wrapper nav-shrink d-flex padding-less">
     <section class="hl_wrapper--inner page-creator" id="page-creator">
       <section class="hl_page-creator--main">
-        <gh-toolbar></gh-toolbar>
+        <gh-toolbar :key="toolbarKey"></gh-toolbar>
         <div class="hl_page-creator--content">
           <gh-draggable 
           v-if="mainRows.length>0"
@@ -40,7 +40,8 @@ export default {
       recentId: 1,
       mainRows: [
         { id: 1 }
-      ]
+      ],
+      toolbarKey: 1
     }
   },
   methods: {
@@ -60,6 +61,9 @@ export default {
       if(this.mainRows.length==0){
         this.recentId = 0;
       }
+    },
+    remount(){
+      this.toolbarKey++;
     }
   }
 }

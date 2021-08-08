@@ -16,7 +16,7 @@ export default {
   components:{
     'gh-sidebar': ghSidebarVue,
     'gh-top-bar': ghTopBarVue
-  }
+  },
 }
 </script>
 
