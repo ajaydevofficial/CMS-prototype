@@ -27,7 +27,8 @@ export default {
   css: [
     '@/assets/css/report.min.css',
     '@/assets/css/styles.min.css',
-    '@/assets/css/widgets.min.css'
+    '@/assets/css/widgets.min.css',
+    '@/assets/css/main.css'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins

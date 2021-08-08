@@ -44,12 +44,69 @@ export default {
     data: ()=>{
         return{
             rows:[
-                { colNum: 1, text: "1 Column" },
-                { colNum: 2, text: "2 Column" },
-                { colNum: 3, text: "3 Column" },
-                { colNum: 4, text: "4 Column" },
-                { colNum: 5, text: "5 Column" },
-                { colNum: 6, text: "6 Column" }
+                { 
+                    colNum: 1, 
+                    text: "1 Column", 
+                    bClass: 'row-cols-1' , 
+                    columns: [
+                        {id: 1, showControls: false, type: null}
+                    ]
+                },
+                { 
+                    colNum: 2, 
+                    text: "2 Column", 
+                    bClass: 'row-cols-1 row-cols-md-2', 
+                    columns: [
+                        {id: 1, showControls: false, type: null}, 
+                        {id: 2, showControls: false, type: null}
+                    ] 
+                },
+                { 
+                    colNum: 3, 
+                    text: "3 Column", 
+                    bClass: 'row-cols-1 row-cols-md-1',
+                    columns: [
+                        {id: 1, showControls: false, type: null}, 
+                        {id: 2, showControls: false, type: null},
+                        {id: 3, showControls: false, type: null}
+                    ] 
+                },
+                { 
+                    colNum: 4, 
+                    text: "4 Column", 
+                    bClass: 'row-cols-1 row-cols-sm-2 row-cols-md-4' ,
+                    columns: [
+                        {id: 1, showControls: false, type: null}, 
+                        {id: 2, showControls: false, type: null},
+                        {id: 3, showControls: false, type: null},
+                        {id: 4, showControls: false, type: null}
+                    ] 
+                },
+                { 
+                    colNum: 5, 
+                    text: "5 Column", 
+                    bClass: 'row-cols-1 row-cols-md-1',
+                    columns: [
+                        {id: 1, showControls: false, type: null}, 
+                        {id: 2, showControls: false, type: null},
+                        {id: 3, showControls: false, type: null},
+                        {id: 4, showControls: false, type: null},
+                        {id: 5, showControls: false, type: null}
+                    ] 
+                },
+                { 
+                    colNum: 6, 
+                    text: "6 Column", 
+                    bClass: 'row-cols-1 row-cols-sm-2 row-cols-md-6',
+                    columns: [
+                        {id: 1, showControls: false, type: null}, 
+                        {id: 2, showControls: false, type: null},
+                        {id: 3, showControls: false, type: null},
+                        {id: 4, showControls: false, type: null},
+                        {id: 5, showControls: false, type: null},
+                        {id: 6, showControls: false, type: null}
+                    ]
+                }
             ]
         }
     },

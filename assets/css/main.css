@@ -1,0 +1,7 @@
+.move-actions {
+    cursor: -webkit-grabbing; 
+    cursor: grabbing;
+}
+.opacity-full{
+    opacity:1 !important;
+}

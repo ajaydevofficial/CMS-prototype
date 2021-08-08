@@ -11,6 +11,7 @@
           group="mainRows"
           @start="drag=true" 
           @end="drag=false"
+          handle=".move-actions"
           >
             <gh-row-container :id="row.id" :add="addMainRow" :remove="removeMainRow" v-for="row in mainRows" v-bind:key="row.id"></gh-row-container>
           </gh-draggable>
